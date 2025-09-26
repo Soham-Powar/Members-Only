@@ -9,6 +9,10 @@ const assetsPath = path.join(__dirname, "public");
 app.use(express.static(assetsPath));
 app.use(express.urlencoded({ extended: true }));
 
+const registerRouter = require("./routes/registerRouter");
+
+app.use("/register", registerRouter);
+
 app.get("/", (req, res) => {
   res.render("index", { user: null }); // Pass user if logged in
 });
