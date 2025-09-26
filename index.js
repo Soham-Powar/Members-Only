@@ -10,8 +10,10 @@ app.use(express.static(assetsPath));
 app.use(express.urlencoded({ extended: true }));
 
 const registerRouter = require("./routes/registerRouter");
+const loginRouter = require("./routes/loginRouter");
 
 app.use("/register", registerRouter);
+app.use("/login", loginRouter);
 
 app.get("/", (req, res) => {
   res.render("index", { user: null }); // Pass user if logged in
