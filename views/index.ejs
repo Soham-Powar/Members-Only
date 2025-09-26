@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>🔥 Members Only 🔥</title>
+	<link rel="stylesheet" href="/styles.css">
+	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<div class="background"></div>
+
+	<header>
+		<h1 class="neon-text">MEMBERS ONLY</h1>
+		<nav>
+			<% if (!user) { %>
+				<a class="btn" href="/login">Login</a>
+				<a class="btn" href="/register">Register</a>
+				<% } else { %>
+					<a class="btn" href="/members">Members Area</a>
+					<a class="btn" href="/logout">Logout</a>
+					<% } %>
+		</nav>
+	</header>
+
+	<main>
+		<div class="content">
+			<h2 class="glow-text">Enter the world of exclusive content!</h2>
+			<p class="glow-text">Join now and be part of something epic. Only true members get in.</p>
+			<a class="btn btn-glow" href="/register">Join the Club</a>
+		</div>
+	</main>
+
+	<footer>
+		<p>&copy; 2025 Members Only. All rights reserved.</p>
+	</footer>
+</body>
+
+</html>

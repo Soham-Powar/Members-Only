@@ -10,7 +10,7 @@ app.use(express.static(assetsPath));
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.send("hekkow");
+  res.render("index", { user: null }); // Pass user if logged in
 });
 
 app.listen(3000, () => {
