@@ -9,6 +9,19 @@ const assetsPath = path.join(__dirname, "public");
 app.use(express.static(assetsPath));
 app.use(express.urlencoded({ extended: true }));
 
+require("./config/passport");
+const session = require("express-session");
+const passport = require("passport");
+
+app.use(
+  session({
+    secret: "cats",
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+app.use(passport.session());
+
 const registerRouter = require("./routes/registerRouter");
 const loginRouter = require("./routes/loginRouter");
 
@@ -16,7 +29,7 @@ app.use("/register", registerRouter);
 app.use("/login", loginRouter);
 
 app.get("/", (req, res) => {
-  res.render("index", { user: null }); // Pass user if logged in
+  res.render("index", { user: req.user || null });
 });
 
 app.listen(3000, () => {
