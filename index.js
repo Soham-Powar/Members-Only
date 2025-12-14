@@ -20,11 +20,20 @@ app.use(
     saveUninitialized: false,
   })
 );
+
 app.use(passport.session());
 
 const registerRouter = require("./routes/registerRouter");
 const loginRouter = require("./routes/loginRouter");
+const dashboardRouter = require("./routes/dashboardRouter");
 
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user || null;
+  console.log(res.locals.currentUser);
+  next();
+});
+
+app.use("/dashboard", dashboardRouter);
 app.use("/register", registerRouter);
 app.use("/login", loginRouter);
 
