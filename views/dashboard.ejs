@@ -15,15 +15,17 @@
 	<header>
 		<h1 class="neon-text">MEMBERS ONLY</h1>
 		<nav>
-			<a class="btn" href="/login">Login</a>
-			<a class="btn" href="/register">Register</a>
+			<a class="btn" href="/members">Members Area</a>
+			<a class="btn" href="/logout">Logout</a>
+		</nav>
 	</header>
 
 	<main>
 		<div class="content">
-			<h2 class="glow-text">Enter the world of exclusive content!</h2>
-			<p class="glow-text">Join now and be part of something epic. Only true members get in.</p>
-			<a class="btn btn-glow" href="/register">Join the Club</a>
+			<h2 class="glow-text">Welcome Back! <%= currentUser.first_name %>
+					<%= currentUser.last_name %>
+			</h2>
+			<p class="glow-text"></p>
 		</div>
 	</main>
 

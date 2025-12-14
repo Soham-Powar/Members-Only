@@ -9,7 +9,7 @@ loginRouter.get("/", loginController.loginGet);
 loginRouter.post(
   "/",
   passport.authenticate("local", {
-    successRedirect: "/",
+    successRedirect: "/dashboard",
     failureRedirect: "/login?error=Invalid credentials",
   })
 );
