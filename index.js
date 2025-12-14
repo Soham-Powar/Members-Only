@@ -29,7 +29,6 @@ const dashboardRouter = require("./routes/dashboardRouter");
 
 app.use((req, res, next) => {
   res.locals.currentUser = req.user || null;
-  console.log(res.locals.currentUser);
   next();
 });
 
