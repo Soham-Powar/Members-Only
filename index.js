@@ -41,6 +41,15 @@ app.get("/", (req, res) => {
   res.render("index", { user: req.user || null });
 });
 
+app.get("/logout", (req, res, next) => {
+  req.logout((err) => {
+    if (err) {
+      return next(err);
+    }
+    res.redirect("/");
+  });
+});
+
 app.listen(3000, () => {
   console.log("fdee");
 });
