@@ -11,7 +11,7 @@ async function addUser({ firstName, lastName, userName, password }) {
   );
 }
 
-async function getUserByUserName(username) {
+async function getUserByUsername(username) {
   const { rows } = await pool.query("select * from users where username = $1", [
     username,
   ]);
@@ -34,4 +34,4 @@ async function updateMembership(id) {
   );
 }
 
-module.exports = { addUser, getUserByUserName, getUserById, updateMembership };
+module.exports = { addUser, getUserByUsername, getUserById, updateMembership };
