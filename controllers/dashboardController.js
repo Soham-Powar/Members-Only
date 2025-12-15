@@ -18,11 +18,7 @@ exports.becomeInsiderGet = (req, res) => {
 };
 
 exports.becomeInsiderPost = async (req, res, next) => {
-  const { secret } = req.body;
-  const INSIDER_CODE = "yuhu1316";
-
-  if (secret === INSIDER_CODE) {
-    req.user.is_member = true;
+  if (req.body.secret === process.env.INSIDER_CODE) {
     await updateMembership(req.user.userid);
     return res.redirect("/dashboard");
   }
