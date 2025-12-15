@@ -15,18 +15,43 @@
 	<header>
 		<h1 class="neon-text">MEMBERS ONLY</h1>
 		<nav>
-			<a class="btn" href="/members">Members Area</a>
+			<a class="btn" href="/members">Become Insider</a>
 			<a class="btn" href="/logout">Logout</a>
 		</nav>
+		<h4 class="glow-text">Welcome Back! <%= currentUser.first_name %>
+				<%= currentUser.last_name %>
+		</h4>
 	</header>
 
 	<main>
-		<div class="content">
-			<h2 class="glow-text">Welcome Back! <%= currentUser.first_name %>
-					<%= currentUser.last_name %>
-			</h2>
-			<p class="glow-text"></p>
+		<div class="messages">
+			<% if (messages.length===0) { %>
+				<p class="glow-text">No messages yet.</p>
+				<% } %>
+
+					<% messages.forEach(msg=> { %>
+						<div class="message-card">
+							<h3 class="glow-text">
+								<%= msg.title %>
+							</h3>
+
+							<p class="glow-text">
+								<%= msg.body %>
+							</p>
+							<p class="meta">
+								<% if (isMember) { %>
+									— <%= msg.first_name %>
+										<%= msg.last_name %>
+											| <%= new Date(msg.created_at).toLocaleString() %>
+												<% } else { %>
+													— Anonymous
+													<% } %>
+							</p>
+
+						</div>
+						<% }) %>
 		</div>
+
 	</main>
 
 	<footer>
