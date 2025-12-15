@@ -48,6 +48,9 @@
 													— Anonymous
 													<% } %>
 							</p>
+							<% if (currentUser.is_admin) { %>
+								<a class="delete-btn" href="/dashboard/delete-message/<%= msg.messageid%>">x</a>
+								<%} %>
 
 						</div>
 						<% }) %>
