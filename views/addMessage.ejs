@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>✍️ Add Message</title>
+
+	<link rel="stylesheet" href="/styles.css" />
+	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<div class="background"></div>
+
+	<header>
+		<h1 class="neon-text">ADD MESSAGE</h1>
+		<nav>
+			<a class="btn" href="/dashboard">Dashboard</a>
+			<a class="btn" href="/logout">Logout</a>
+		</nav>
+	</header>
+
+	<main class="add-message-container">
+		<div class="add-message-box">
+
+			<form action="/dashboard/add-message" method="POST" class="add-message-form">
+
+				<label for="title" class="glow-text">Message Title</label>
+				<input type="text" id="title" name="title" maxlength="200" placeholder="Enter title..." required />
+
+				<label for="body" class="glow-text">Message Body</label>
+				<textarea id="body" name="body" rows="6" placeholder="Write your message..." required></textarea>
+
+				<% if (typeof error !=="undefined" ) { %>
+					<p class="form-error">
+						<%= error %>
+					</p>
+					<% } %>
+
+						<button type="submit" class="btn btn-glow">
+							Post Message
+						</button>
+
+			</form>
+
+		</div>
+	</main>
+
+	<footer>
+		<p>&copy; 2025 Members Only. All rights reserved.</p>
+	</footer>
+</body>
+
+</html>

@@ -61,6 +61,7 @@ header {
 	text-align: center;
 	position: relative;
 	z-index: 1;
+	padding-bottom: 0;
 }
 
 .neon-text {
@@ -323,4 +324,69 @@ footer {
 	font-size: 0.85rem;
 	text-shadow: 0 0 5px #ff4d4d;
 	margin-top: 0.5rem;
+}
+
+/* ------------ ADD MESSAGE PAGE ------------ */
+
+.add-message-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 65vh;
+}
+
+.add-message-box {
+	background: rgba(0, 0, 0, 0.75);
+	padding: 2.5rem 3rem;
+	border-radius: 16px;
+	border: 2px solid #00ffff;
+	box-shadow:
+		0 0 15px rgba(0, 255, 255, 0.5),
+		0 0 35px rgba(0, 255, 255, 0.3);
+	width: 90%;
+	max-width: 600px;
+}
+
+.add-message-form {
+	display: flex;
+	flex-direction: column;
+	gap: 1.3rem;
+}
+
+.add-message-form label {
+	font-size: 0.9rem;
+}
+
+.add-message-form input,
+.add-message-form textarea {
+	width: 100%;
+	padding: 0.9rem;
+	border-radius: 10px;
+	background: rgba(255, 255, 255, 0.15);
+	border: none;
+	color: #fff;
+	font-family: 'Press Start 2P', cursive;
+	box-shadow: 0 0 8px #00ffff;
+	resize: none;
+}
+
+.add-message-form textarea {
+	resize: vertical;
+	min-height: 140px;
+}
+
+.add-message-form input:focus,
+.add-message-form textarea:focus {
+	outline: none;
+	background: rgba(255, 255, 255, 0.25);
+	box-shadow:
+		0 0 20px #00ffff,
+		0 0 40px #00ffff;
+}
+
+.form-error {
+	color: #ff4d4d;
+	font-size: 0.8rem;
+	text-shadow: 0 0 5px #ff4d4d;
+	text-align: center;
 }

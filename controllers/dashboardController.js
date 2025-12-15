@@ -1,4 +1,4 @@
-const { getAllMessages } = require("../db/queries-msgs");
+const { getAllMessages, addMessage } = require("../db/queries-msgs");
 const { updateMembership } = require("../db/queries");
 
 exports.dashboardGet = async (req, res, next) => {
@@ -26,4 +26,29 @@ exports.becomeInsiderPost = async (req, res, next) => {
   res.render("becomeInsider", {
     error: "Invalid secret code.",
   });
+};
+
+exports.addMessageGet = (req, res) => {
+  res.render("addMessage");
+};
+
+exports.addMessagePost = async (req, res, next) => {
+  const { title, body } = req.body;
+
+  if (!title || !body) {
+    return res.render("addMessage", {
+      error: "Title and body are required.",
+    });
+  }
+
+  try {
+    await addMessage({
+      userid: req.user.userid,
+      title,
+      body,
+    });
+    res.redirect("/dashboard");
+  } catch (error) {
+    next(error);
+  }
 };
