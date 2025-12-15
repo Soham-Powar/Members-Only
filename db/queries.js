@@ -25,4 +25,13 @@ async function getUserById(id) {
   return rows[0];
 }
 
-module.exports = { addUser, getUserByUserName, getUserById };
+async function updateMembership(id) {
+  await pool.query(
+    `UPDATE users
+     SET is_member = TRUE
+     WHERE userid = $1`,
+    [id]
+  );
+}
+
+module.exports = { addUser, getUserByUserName, getUserById, updateMembership };
