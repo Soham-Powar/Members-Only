@@ -19,7 +19,12 @@ async function getAllMessages() {
   return rows;
 }
 
+async function deleteMessage(messageid) {
+  await pool.query(`DELETE FROM messages WHERE messageid = $1`, [messageid]);
+}
+
 module.exports = {
   addMessage,
   getAllMessages,
+  deleteMessage,
 };
