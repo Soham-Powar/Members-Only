@@ -257,3 +257,70 @@ footer {
 	flex-direction: column;
 	gap: 1.5rem;
 }
+
+/* ---------------- INSIDER PAGE ---------------- */
+
+.insider-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 60vh;
+}
+
+.insider-box {
+	background: rgba(0, 0, 0, 0.75);
+	padding: 2.5rem 3rem;
+	border-radius: 16px;
+	border: 2px solid #ff00de;
+	box-shadow:
+		0 0 15px rgba(255, 0, 222, 0.5),
+		0 0 35px rgba(255, 0, 222, 0.3);
+	text-align: center;
+	animation: cardGlow 2s ease-in-out infinite alternate;
+	max-width: 500px;
+	width: 90%;
+}
+
+.insider-form {
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+}
+
+.insider-form label {
+	font-size: 1rem;
+}
+
+.insider-form input {
+	padding: 0.9rem;
+	border-radius: 10px;
+	background: rgba(255, 255, 255, 0.15);
+	border: none;
+	color: #fff;
+	text-align: center;
+	font-family: 'Press Start 2P', cursive;
+	box-shadow: 0 0 8px #ff00de;
+}
+
+.insider-form input:focus {
+	outline: none;
+	box-shadow:
+		0 0 20px #ff00de,
+		0 0 40px #ff00de;
+	background: rgba(255, 255, 255, 0.25);
+}
+
+.insider-success {
+	font-size: 1.2rem;
+	color: #00ffff;
+	text-shadow:
+		0 0 5px #00ffff,
+		0 0 15px #00ffff;
+}
+
+.insider-error {
+	color: #ff4d4d;
+	font-size: 0.85rem;
+	text-shadow: 0 0 5px #ff4d4d;
+	margin-top: 0.5rem;
+}

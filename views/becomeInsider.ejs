@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>🔥 Become Insider 🔥</title>
+
+	<link rel="stylesheet" href="/styles.css" />
+	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<div class="background"></div>
+
+	<header>
+		<h1 class="neon-text">MEMBERS ONLY</h1>
+		<nav>
+			<a class="btn" href="/dashboard">Dashboard</a>
+			<a class="btn" href="/logout">Logout</a>
+		</nav>
+	</header>
+
+	<main class="insider-container">
+		<div class="insider-box">
+
+			<% if (currentUser && currentUser.is_member) { %>
+				<p class="insider-success glow-text">
+					🔥 You are already an Insider 🔥
+				</p>
+				<% } else { %>
+
+					<form action="/dashboard/become-insider" method="POST" class="insider-form">
+						<label for="secret" class="glow-text">Enter Secret Code</label>
+
+						<input type="password" id="secret" name="secret" placeholder="••••••••" required />
+
+						<% if (typeof error !=="undefined" ) { %>
+							<p class="insider-error">
+								<%= error %>
+							</p>
+							<% } %>
+
+								<button type="submit" class="btn btn-glow">
+									Become Insider
+								</button>
+					</form>
+
+					<% } %>
+
+		</div>
+	</main>
+
+	<footer>
+		<p>&copy; 2025 Members Only. All rights reserved.</p>
+	</footer>
+</body>
+
+</html>
