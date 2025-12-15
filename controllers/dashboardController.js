@@ -1,4 +1,8 @@
-const { getAllMessages, addMessage } = require("../db/queries-msgs");
+const {
+  getAllMessages,
+  addMessage,
+  deleteMessage,
+} = require("../db/queries-msgs");
 const { updateMembership } = require("../db/queries");
 
 exports.dashboardGet = async (req, res, next) => {
@@ -47,6 +51,17 @@ exports.addMessagePost = async (req, res, next) => {
       title,
       body,
     });
+    res.redirect("/dashboard");
+  } catch (error) {
+    next(error);
+  }
+};
+
+exports.deleteMessagePost = async (req, res, next) => {
+  const { messageid } = req.params;
+
+  try {
+    await deleteMessage(messageid);
     res.redirect("/dashboard");
   } catch (error) {
     next(error);

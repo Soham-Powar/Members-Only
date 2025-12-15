@@ -3,6 +3,7 @@ const dashboardRouter = new Router();
 
 const dashboardController = require("../controllers/dashboardController");
 const isAuth = require("../middlewares/isAuth");
+const isAdmin = require("../middlewares/isAdmin");
 
 dashboardRouter.get("/", isAuth, dashboardController.dashboardGet);
 
@@ -22,6 +23,13 @@ dashboardRouter.post(
   "/add-message",
   isAuth,
   dashboardController.addMessagePost
+);
+
+dashboardRouter.get(
+  "/delete-message/:messageid",
+  isAuth,
+  isAdmin,
+  dashboardController.deleteMessagePost
 );
 
 module.exports = dashboardRouter;
